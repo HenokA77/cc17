@@ -66,3 +66,48 @@ class SalesRep {
   console.log(`Total spent by John Doe: $${salesRep1.getClientTotal("John Doe")}`);
   console.log(`Total spent by Jane Smith: $${salesRep1.getClientTotal("Jane Smith")}`);
   
+  // Task 3: Create the VIPCustomer class (extends Customer)
+class VIPCustomer extends Customer {
+    constructor(name, email, vipLevel) {
+      super(name, email);
+      this.vipLevel = vipLevel; // Additional VIP level property
+    }
+  
+    // Override getTotalSpent to apply a 10% loyalty bonus
+    getTotalSpent() {
+      const baseTotal = super.getTotalSpent();
+      return baseTotal * 1.1; // Adding 10% extra
+    }
+  }
+  
+  //  Test: Create a VIP customer and log purchases
+  const vipCustomer = new VIPCustomer("Michael Jordan", "mj@example.com", "Platinum");
+  vipCustomer.addPurchase(500);
+  vipCustomer.addPurchase(800);
+  
+  console.log(`VIP Customer: ${vipCustomer.name} (${vipCustomer.vipLevel})`);
+  console.log(`Total spent with VIP bonus: $${vipCustomer.getTotalSpent().toFixed(2)}`);
+  
+
+  // Task 3: Create the VIPCustomer class (extends Customer)
+class VIPCustomer extends Customer {
+    constructor(name, email, vipLevel) {
+      super(name, email);
+      this.vipLevel = vipLevel; // Additional VIP level property
+    }
+  
+    // Override getTotalSpent to apply a 10% loyalty bonus
+    getTotalSpent() {
+      const baseTotal = super.getTotalSpent();
+      return baseTotal * 1.1; // Adding 10% extra
+    }
+  }
+  
+  // ✅ Test: Create a VIP customer and log purchases
+  const vipCustomer = new VIPCustomer("Michael Jordan", "mj@example.com", "Platinum");
+  vipCustomer.addPurchase(500);
+  vipCustomer.addPurchase(800);
+  
+  console.log(`VIP Customer: ${vipCustomer.name} (${vipCustomer.vipLevel})`);
+  console.log(`Total spent with VIP bonus: $${vipCustomer.getTotalSpent().toFixed(2)}`);
+  
